@@ -1,4 +1,5 @@
 "use client"; 
+export const dynamic = 'force-dynamic';
 import DotLoader from "@/components/pagewrapper/DotLoader";
 import { useRouter } from 'next/navigation';
 import { useState } from "react";
