@@ -1,5 +1,5 @@
 "use client"
-
+export const dynamic = 'force-dynamic';
 
 import { usePathname } from "next/navigation";
 import TopNav from "../nav/topNav";

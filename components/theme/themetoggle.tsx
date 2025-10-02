@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = 'force-dynamic';
 
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react"; // npm install lucide-react

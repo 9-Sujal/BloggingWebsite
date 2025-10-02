@@ -1,5 +1,5 @@
 "use client";
-
+export const dynamic = 'force-dynamic';
 export default function DotLoader() {
   return (
     <div className="flex items-center justify-center space-x-2">

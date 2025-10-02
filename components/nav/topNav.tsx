@@ -1,4 +1,5 @@
 "use client"
+export const dynamic = 'force-dynamic';
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 import { Sigma,LogIn,User,LogOut, UserPlus2, SparklesIcon, LucideUser, LogOutIcon} from 'lucide-react'
