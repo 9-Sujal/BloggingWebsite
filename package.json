@@ -44,7 +44,7 @@
     "@types/markdown-it": "^14.1.2",
     "@types/mongoose-unique-validator": "^1.0.9",
     "@types/node": "^20",
-    "@types/react": "^19.2.0",
+    "@types/react": "^19.2.8",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
     "eslint": "^9",

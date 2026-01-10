@@ -7,10 +7,10 @@ import { NextResponse } from "next/server";
 
 
 export async function GET(req: Request, 
-  {params}: { params: { slug: string } }) {
+  {params}: { params: Promise<{ slug: string }> }) {
     await dbConnect();
 
-    const { slug } = params;
+    const { slug } = await params;
     const url = new URL(req.url);
     const page = parseInt(url.searchParams.get("page") || "1", 10);
     const pageSize = 6;
