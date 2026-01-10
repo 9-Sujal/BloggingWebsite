@@ -2,12 +2,12 @@
 export const dynamic = 'force-dynamic';
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
-import { Sigma,LogIn,User,LogOut, UserPlus2, SparklesIcon, LucideUser, LogOutIcon} from 'lucide-react'
+import { Sigma,LogIn,LogOut, UserPlus2, SparklesIcon, LucideUser, LogOutIcon} from 'lucide-react'
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import {motion} from 'framer-motion';
 import {useSession, signOut} from 'next-auth/react';
-import {FaPen} from 'react-icons/fa'; 
+import {FaPen, FaPencilAlt} from 'react-icons/fa'; 
 
 
 
@@ -79,35 +79,42 @@ export default function TopNav() {
   }
   return (
 
-    <nav className='relative  w-full bg-gradient-to-r from-sky-100 via-blue-100 to indigo-100 border-indigo-300 shadow-sm'>
-     <div className='max-w-7xl mb-5 mx-auto px-6 py-3 flex items-center justify-between '>
+    <nav className='relative  w-full bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 shadow-sm'>
+     <div className='max-w-5xl mx-auto px-6 py-3 flex items-center justify-between '>
        <div className='flex items-center space-x-2'>
-        <Link href="/" className=' text-xl flex text-gray-900 border-2 rounded-lg p-2 hover:bg-white hover:text-amber-600  ' >
+        <Link href="/" className=' text-xl flex text-white border-2 rounded-lg p-2 hover:bg-white hover:text-amber-600  ' >
        <Sigma className='size-10 hover:text-blue-400'/>
        <SparklesIcon className='size-4 hover:text-green-600 ' />
-       
+        
         </Link>
+        
         </div> 
 
        {/* profile */}
        <div className='relative'>
 
-       <div className='absolute right-16 justify-center flex items-center gap-4 p-2'>
+       <div className='absolute right-16 justify-center flex items-center gap-4 p-2 truncate '>
         {status === "authenticated" ? (
           <div className='flex items-center space-x-8   '>
              
              {session?.user?.role === "author" ?(
+               <div className='flex items-center truncate gap-2 '> 
                 <Link href="/dashboard/author" aria-label='author' className=' relative flex items-center whitespace-nowrap min-w-0 truncate gap-2 hover:border-green-400 hover:underline-offset-auto rounded-lg '>
                
-                <LucideUser className="text-amber-300"
-                size={16}/> <span className='whitespace-nowrap flex-1 min-w-0 truncate text-amber-300 font-medium text-lg hover:underline '> {session?.user?.name || session?.user?.email}  
-                </span> <FaPen className='text-amber-100' size={14} /> 
-                 
-              </Link>
+                <LucideUser className="text-cyan-900"
+                size={16}/> <span className='whitespace-nowrap flex-1 min-w-0 truncate text-cyan-900 font-medium text-lg hover:text-cyan-950 hover:underline '> {session?.user?.name || session?.user?.email}  
+                </span> <FaPen className='text-cyan-200' size={14} /> 
+                 </Link>
+
+              <Link className=' px-2 flex items-center gap-1 hover:underline text-white hover:text-gray-200' 
+              href="/blog/create">
+             Write a Blog <FaPencilAlt size={16}/> </Link>
+         </div>
                ):(
-      <Link href="/dashboard/user" className='flex items-center gap-1 hover:border-green-400 hover:underline-offset-auto rounded-lg'>
-               <LucideUser className="text-amber-300"
-                size={16}/> <span className='whitespace-nowrap flex-1 min-w-0 truncate text-amber-300 font-medium text-lg hover:underline '> {session?.user?.name || session?.user?.email} </span>
+                // "/dashboard/user" 
+      <Link href="/" className='flex items-center gap-1 hover:border-green-400 hover:underline-offset-auto rounded-lg'>
+               <LucideUser className="text-amber-200"
+                size={16}/> <span className='whitespace-nowrap flex-1 min-w-0 truncate text-amber-200 font-medium text-lg hover:underline '> {session?.user?.name || session?.user?.email} </span>
               </Link>
                )}
               
@@ -118,9 +125,9 @@ export default function TopNav() {
                 )}
               
 
-              <button className='flex items-center gap-1 hover:underline text-red-200 hover:text-red-400 ' 
+              <button className='flex items-center gap-1 hover:underline text-white hover:text-gray-400 ' 
               onClick={()=> signOut({callbackUrl:"/login"})}>
-              <LogOutIcon size={16}/>Logout  </button>
+              <LogOutIcon size={16}/> Logout </button>
           </div>
         
           
@@ -153,7 +160,7 @@ export default function TopNav() {
            alt='profile'
            width={40}
            height={40}
-           className=''/>
+           className='bg-amber-300'/>
            
         </button>
         {/* dropdown */}
@@ -162,23 +169,23 @@ export default function TopNav() {
            initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className='absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-indigo-200 text-sm overflow-hidden z-50'>
-            <li>
+          className='absolute right-0 mt-2 w-48 bg-zinc-900 rounded-xl shadow-lg border border-zinc-700 text-sm overflow-hidden z-50'>
+            {/* <li>
               <Link href="/"
-              className='flex items-center gap-2 px-4 py-2 hover:bg-gray-300 text-black'>
+              className='flex items-center gap-2 px-4 py-2 hover:bg-zinc-800 text-white'>
                 <User size={16}/> Profile
               </Link>
-            </li>
+            </li> */}
             <li>
              <button onClick = {handleRegister}
-              className='flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-indigo-50 text-indigo-700 cursor-pointer'>
+              className='flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-zinc-800 text-white cursor-pointer'>
               <UserPlus2 size={16} className='inline'/> Register
               </button> 
             </li>
             <li>
               <Link href="/"
                onClick={()=> signOut({callbackUrl:"/login"})}
-              className='w-full flex items-center gap-2 px-4 py-2 hover:bg-red-50 text-red-600'>
+              className='w-full flex items-center gap-2 px-4 py-2 hover:bg-zinc-800 text-white'>
                 <LogOut size={16}/> LogOut
 
               </Link>
