@@ -144,7 +144,9 @@ export const BlogProvider: React.FC<{children:React.ReactNode}> = ({children}) =
                }
 
 
-              }catch(err:any){
+              }
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              catch(err:any){
                 console.log(err);
               }
           }
