@@ -23,7 +23,7 @@ export default function AuthorNav() {
         write a blog
         </Link>
 
-          <Link href="/dashboard/author/blogs" 
+          <Link href="/" 
         className='text-xl flex text-gray-900 border-2 rounded-lg p-2 hover:bg-white hover:text-amber-600  '>
         myBlogs
         </Link>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import { BlogProvider } from "@/context/blog";
 
 import PageWrapper from "@/components/pagewrapper/PageWrapper";
 import SessionProviderWrapper from "@/components/auth/SessionProviderWrapper";
@@ -31,13 +32,25 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
      
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased {overflow-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]}` }
+      <BlogProvider>
+
+        <body
+           className={`
+        ${geistSans.variable}
+        ${geistMono.variable}
+        antialiased
+        bg-zinc-900 text-zinc-100
+        overflow-x-hidden
+        scrollbar-none
+        selection:bg-blue-500/30 selection:text-white
+      `}
       >
         <SessionProviderWrapper>
         <TopNavWrapper/>
         <Toaster position="top-right" />
-        <main>
+        <main className="relative">
+               <div className="pointer-events-none fixed inset-0 -z-10
+                          bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5" />
           <PageWrapper>
           {children}
           </PageWrapper>
@@ -48,6 +61,7 @@ export default function RootLayout({
         </SessionProviderWrapper>
         
       </body>
+      </BlogProvider>
      
     </html>
   );

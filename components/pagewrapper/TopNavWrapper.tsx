@@ -7,6 +7,7 @@ import TopNav from "../nav/topNav";
 export default function TopNavWrapper() {
   const pathname = usePathname();
 
-  if (pathname.startsWith("/dashboard/admin")) return null; // hide TopNav for admin
+  if (pathname.startsWith("/dashboard/admin")) return null; 
+  else   if (pathname.startsWith("/dashboard/author")) return null;// hide TopNav for admin
   return <TopNav />;
 }

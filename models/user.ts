@@ -1,13 +1,15 @@
+
 import mongoose, { Document, Model } from "mongoose";
 import mongooseUniqueValidator from "mongoose-unique-validator";
 
 
 
 export interface IUser extends Document {
+
   username: string;
   email: string;
   password: string;
-  role: "user" | "subscriber";
+  role: "user" | "author";
   image?: string;
   resetCode?: {
     code: string;
@@ -18,11 +20,12 @@ export interface IUser extends Document {
 }
 
 const userSchema = new mongoose.Schema<IUser>({
+    
      username: {type: String, required: true, trim:true, minlength:3 },
      email: {type: String, required: true, unique: true,index:true, lowercase: true },
      password:{type: String, required: true, select:false, minlength: 5},
      role:{type: String, enum:['user','author'], default:'user'},
-     image:{type: String},
+     image:{type:String, index: true},
      resetCode:{
       code:{type: String},
       expiresAt:{
