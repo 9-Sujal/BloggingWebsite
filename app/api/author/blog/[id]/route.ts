@@ -7,10 +7,10 @@ import slugify from "slugify";
 
 export async function PUT(
   req: Request,
-  {params}: { params: { id: string } }
+  {params}: { params: Promise<{ id: string }> }
 ) {
   await dbConnect();
-  const { id } = params;
+  const { id } = await params;
   const body = await req.json();
 
   const user = await currentUser();
