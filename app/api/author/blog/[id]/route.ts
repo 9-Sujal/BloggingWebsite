@@ -35,7 +35,9 @@ export async function PUT(
     );
 
     return NextResponse.json(updated, { status: 200 });
-  } catch (err: any) {
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  catch (err: any) {
     console.error(err);
     return NextResponse.json({ err: err.message }, { status: 500 });
   }
@@ -63,7 +65,10 @@ export async function DELETE(
   try {
     const deleted = await Blog.deleteOne({ _id: id });
     return NextResponse.json(deleted, { status: 200 });
-  } catch (err: any) {
+  } 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  catch (err: any) {
+    
     console.error(err);
     return NextResponse.json({ err: err.message }, { status: 500 });
   }

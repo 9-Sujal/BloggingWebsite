@@ -30,7 +30,9 @@ export async function GET(request: Request){
                   totalPages: Math.ceil(totalBlogs/pageSize), 
                      }, {status:200});
             
- }catch(err:any)
+ }
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+ catch(err:any)
              { 
                 return NextResponse.json({err:err.message}, {status:500}
 
