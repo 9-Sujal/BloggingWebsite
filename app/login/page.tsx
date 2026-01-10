@@ -2,10 +2,12 @@
 import { Suspense } from "react";
 import LoginShell from "./loginShell";
 
-export default function LoginPage() {
+const LoginPage: React.FC = () => {
   return (
-    <Suspense fallback={<div>Loading login...</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
       <LoginShell />
     </Suspense>
   );
 }
+
+export default LoginPage;
