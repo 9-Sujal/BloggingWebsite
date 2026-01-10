@@ -2,7 +2,7 @@ import {NextResponse} from 'next/server';
 import dbConnect from '@/lib/dbConnect';
 import bcrypt from 'bcryptjs';
 import User from '@/models/user';
-import { ins } from 'framer-motion/client';
+
 
 
 export async function POST(request:Request){
