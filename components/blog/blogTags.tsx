@@ -52,7 +52,7 @@ export default function BlogTags({ onNextStep, onPrevStep }:BlogFormProps ) {
          className="
             px-6 py-2.5
             rounded-lg
-            bg-gradient-to-r from-blue-500/80 to-purple-500/80
+            bg-linear-to-r from-blue-500/80 to-purple-500/80
             text-white
             font-medium
             hover:opacity-90

@@ -7,7 +7,7 @@ import { FaPencilAlt } from 'react-icons/fa';
 
 export default function AuthorNav() {
   return (
-     <nav className='relative  w-full bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 border-white shadow-sm'>
+     <nav className='relative  w-full bg-linear-to-br from-blue-500/5 via-transparent to-purple-500/5 border-white shadow-sm'>
      <div className='max-w-7xl mb-5 mx-auto px-6 py-3 flex items-center justify-between '>
      
               <div className='flex items-center space-x-2'>

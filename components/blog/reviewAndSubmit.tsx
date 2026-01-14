@@ -80,12 +80,12 @@ export default function ReviewAndSubmit({
             disabled={isDisabled}
             className="
               flex-1 px-6 py-2.5 rounded-lg
-              bg-gradient-to-r from-blue-500/80 to-purple-500/80
+              bg-linear-to-r from-blue-500/80 to-purple-500/80
               text-white font-medium
               hover:opacity-90
               transition
               disabled:opacity-40
-              disabled:cursor-not-allowed
+              
             "
           >
             Publish Blog 
