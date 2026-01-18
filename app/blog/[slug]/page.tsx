@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import md from "@/lib/md";
 import dayjs from "dayjs";
@@ -91,7 +92,7 @@ export default async function BlogViewPage({
 
   return (
     <div className=" mx-auto mt-10 md:mt-12 px-3 sm:px-4 lg:px-6 ">
-      <div className="border-2 mx-auto w-full relative max-w-2xl aspect-[16/9] rounded-xl md:rounded-xl overflow-hidden">
+      <div className="border-2 mx-auto w-full relative max-w-2xl aspect-video rounded-xl md:rounded-xl overflow-hidden">
         <Image
           src={blog.featuredImage || "/images/default.jpeg"}
           alt={blog.title}

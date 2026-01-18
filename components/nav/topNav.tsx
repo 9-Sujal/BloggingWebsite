@@ -41,7 +41,7 @@ export default function TopNav() {
     author: [
       { label: "Home", href: "/" },
       { label: "Write Blog", href: "/blog/create" },
-      { label: "Portfolio", href: "/portfolio" },
+      { label: "Portfolio", href: "https://myportfolio-qm36.vercel.app/" },
     ],
     admin: [
       { label: "Home", href: "/" },

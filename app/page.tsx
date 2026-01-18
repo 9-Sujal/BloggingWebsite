@@ -2,6 +2,7 @@ import BlogCard from "@/components/blog/View/blogCard";
 import Pagination from "@/components/blog/View/pagination";
 import { Blog } from "@/types/blog";
 
+
 export const metadata = {
   title: "Reading list",
   description: "Welcome to the reading list page where you can find all my blogs.",
@@ -10,6 +11,7 @@ export const metadata = {
 async function getBlogs(page: number = 1) {
   const res = await fetch(`${process.env.API}/blogs?page=${page}`, {
     next: { revalidate: 60 },
+    cache:"no-store",
   });
 
   if (!res.ok) {
@@ -18,6 +20,18 @@ async function getBlogs(page: number = 1) {
 
   return res.json();
 }
+// async function getBlogs(page = 1) {
+//   const res = await fetch(`${process.env.API}/api/blogs?page=${page}`, {
+   
+//     next: { revalidate: 60 },
+//   });
+
+//   if (!res.ok) {
+//     return [];
+//   }
+
+//   return res.json();
+// }
 
 export default async function Home({
   searchParams,
