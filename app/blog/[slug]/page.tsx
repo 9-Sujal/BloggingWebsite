@@ -6,10 +6,12 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { Blog } from "@/types/blog";
 import { getBaseUrl } from "@/lib/getBaseUrl";
 
+
 dayjs.extend(relativeTime);
 
 // -------------- FETCH FOR PAGE (relative OK) ------------------
 async function getBlog(slug: string): Promise<Blog | null> {
+
   try {
     const base = getBaseUrl();
     const res = await fetch(`${base}/api/blog/${slug}`, {

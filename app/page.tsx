@@ -11,7 +11,7 @@ export const metadata = {
 async function getBlogs(page: number = 1) {
   const res = await fetch(`${process.env.API}/blogs?page=${page}`, {
     next: { revalidate: 60 },
-    cache:"no-store",
+  
   });
 
   if (!res.ok) {
