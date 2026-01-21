@@ -116,9 +116,7 @@ export default function LoginForm() {
         </button>
 
         <div className="mt-4 flex justify-between text-sm">
-          <Link href="/auth/forgot-password" className="text-zinc-600 hover:text-red-500">
-            Forgot Password?
-          </Link>
+         
           <Link href="/register" className="text-zinc-600 hover:text-blue-500">
             Create Account
           </Link>
