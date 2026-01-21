@@ -16,7 +16,7 @@ export default function ReviewAndSubmit({
   const isDisabled =
     !title?.trim() ||
     markdown?.trim().length < 60 ||
-    selectedTags?.length < 1;
+    selectedTags?.length <=0;
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 mt-12">

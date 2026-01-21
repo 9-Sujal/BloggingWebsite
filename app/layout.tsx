@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -50,7 +52,7 @@ export default function RootLayout({
         <Toaster position="top-right" />
         <main className="relative">
                <div className="pointer-events-none fixed inset-0 -z-10
-                          bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5" />
+                          bg-linear-to-br from-blue-500/5 via-transparent to-purple-500/5" />
           <PageWrapper>
           {children}
           </PageWrapper>
