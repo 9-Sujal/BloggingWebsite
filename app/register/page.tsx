@@ -78,15 +78,15 @@ export default function Register(){
         initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-             className="min-h-screen flex items-center justify-center bg-transparent-t bg-gradient-to-br fro-sky-50 vi-green-100 to-green-200 shadow-md px-4 overflow-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ">
+             className="min-h-screen flex items-center justify-center bg-zinc-900 shadow-md px-4 overflow-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ">
             <motion.div 
              initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -50, opacity: 0 }}
               transition={{ duration: 0.3 }}
-            className="backdrop-blur-md w-full max-w-md bg-white/30 border-white/20 shadow-xl rounded-2xl p-6">
+            className="backdrop-blur-md w-full max-w-md bg-zinc-700 border-white/20 shadow-xl rounded-2xl p-6">
 
-               <h1 className="text-2xl font-sans text-zinc-900 mb-6 text-center">Create your Account</h1> 
+               <h1 className="text-2xl font-sans text-zinc-100 mb-6 text-center">Create your Account</h1> 
                  {loading ? (
           <DotLoader/>
 
@@ -95,7 +95,7 @@ export default function Register(){
            onSubmit={handleSubmit}
            className="space-y-4">
             <div>
-                <label className="block text-sm font-medium text-zinc-800">Username</label>
+                <label className="block text-sm font-medium text-zinc-300">Username</label>
                 <input type="text"
                 name="username"
                 value={form.username}
@@ -108,7 +108,7 @@ export default function Register(){
             )}
             </div>
             <div>
-                <label className="block text-sm font-medium text-zinc-800">Email</label>
+                <label className="block text-sm font-medium text-zinc-300">Email</label>
                 <input type="email"
                 name="email"
                 value={form.email}
@@ -120,14 +120,14 @@ export default function Register(){
             )}
             </div>
             <div>
-                <label className="block text-sm font-medium text-zinc-800">Password</label>
+                <label className="block text-sm font-medium text-zinc-300">Password</label>
                 <input type="password"
                 name="password"
                 value={form.password}
                 onChange={handleChange}
                 required
                 minLength={5}
-                className="mt-1 w-full px-3 py-2 bg-white/70 border border-gray-300 rounded-lg  text-black font-medium text-2xl shadow-sm focus:ring focus:ring-emerald-500 focus:ring-opacity-50 focus:border-emerald-500 sm:text-sm"/>
+                className="mt-2 mb-3 w-full px-3 py-2 bg-white/70 border border-gray-300 rounded-lg  text-black font-medium text-2xl shadow-sm focus:ring focus:ring-emerald-500 focus:ring-opacity-50 focus:border-emerald-500 sm:text-sm"/>
             {error?.field === "password" && (
               <p className="text-sm text-red-600 mt-1">{error.message}</p>
             )}
@@ -140,7 +140,7 @@ export default function Register(){
             <button
                type="submit"
                disabled={loading}
-               className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded- lg-sm text-sm font-medium text-white bg-zinc-700 hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 disabled:opacity-50 transition">
+               className="w-full rounded-b-xl flex justify-center items-center py-2 px-4 border border-transparent rounded- lg-sm text-sm font-medium text-white bg-zinc-800 hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 disabled:opacity-50 transition">
                 {loading ? "Registering..." : "Register"}
                </button>
 

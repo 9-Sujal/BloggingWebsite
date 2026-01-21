@@ -54,7 +54,7 @@ export default function LoginForm() {
 
     };
   return (
-         <form onSubmit={handleSubmit} className="space-y-4 text-zinc-500">
+         <form onSubmit={handleSubmit} className="space-y-4 text-zinc-00">
 
           <div className=''>
             <label htmlFor="email" className="block text-sm font-medium text-shadow-zinc-800">
@@ -105,19 +105,19 @@ export default function LoginForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-zinc-900 border border-zinc-300 shadow-zinc-300 shadow-2xs text-white py-2 rounded-lg hover:bg-green-700 transition"
+            className="w-full bg-zinc-950 text-white py-2 hover:bg-zinc-800 shadow-zincs-400 shadow-2xs border rounded-lg border-zinc-300   transition"
           >
             {loading ? "Signing in..." : "Login"}
           </button>
            <button 
         onClick={()=> signIn("google", {callbackUrl})} 
-        className=' flex items-center justify-center gap-2 w-full bg-cyan-950 text-white py-2 hover:bg-cyan-800 shadow-cyan-400 shadow-2xs border rounded-lg border-cyan-300  transition'>
+        className=' flex items-center justify-center gap-2 w-full bg-zinc-950 text-white py-2 hover:bg-zinc-800 shadow-zincs-400 shadow-2xs border rounded-lg border-zinc-300  transition'>
           Sign in with Google <UserPlus size={16}/>
         </button>
 
         <div className="mt-4 flex justify-between text-sm">
          
-          <Link href="/register" className="text-zinc-600 hover:text-blue-500">
+          <Link href="/register" className="text-zinc-300 hover:text-blue-500">
             Create Account
           </Link>
         </div>

@@ -11,7 +11,7 @@ export default function LoginShell() {
       animate={{ opacity: 1 }}
       className="min-h-screen flex items-center justify-center px-6"
     >
-      <motion.div className="w-full max-w-md bg-white/70 rounded-2xl p-8">
+      <motion.div className="w-full max-w-md bg-zinc-700 rounded-2xl p-8">
         <h1 className="text-2xl font-semibold text-center mb-4">
           Login
         </h1>
