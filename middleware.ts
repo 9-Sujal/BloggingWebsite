@@ -98,19 +98,25 @@ export default withAuth(
 
     return response;
   }, 
-  {
-    callbacks: {
-      authorized: ({ token, req }) => {
-        // CRITICAL FIX: Allow cross-origin API calls and OPTIONS requests to skip 
-        // the NextAuth login redirect wall, otherwise Render will get redirected to a login page html string!
-        const url = req.nextUrl.pathname;
-        if (url.startsWith("/api/") || req.method === "OPTIONS") {
-          return true;
-        }
-        
-        // Keep your original strict rule for regular admin dashboard UI views
-        return !!token;
+ {
+  callbacks: {
+    authorized: ({ token, req }) => {
+      const url = req.nextUrl.pathname;
+      const method = req.method;
+
+      // CRITICAL FIX: Explicitly allow public blog fetching paths to bypass NextAuth checks
+      if (url.startsWith("/api/blog") && method === "GET") {
+        return true;
       }
+      
+      // Allow options preflights and other non-dashboard api paths to bypass
+      if (url.startsWith("/api/") || method === "OPTIONS") {
+        return true;
+      }
+      
+      // Keep your strict rule for user dashboards
+      return !!token;
     }
   }
+}
 );
