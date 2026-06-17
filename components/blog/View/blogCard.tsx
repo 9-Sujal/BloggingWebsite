@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import "highlight.js/styles/github.css";
+
 import { Blog, Tag } from "@/types/blog";
 import Image from "next/image";
 
@@ -18,7 +18,7 @@ export default function BlogCard({ blog, page }: BlogCardProps) {
         backdrop-blur-xl 
         rounded-2xl 
         duration-500 
-        max-w-[640px] 
+        max-w-160 
         mx-auto
       
         overflow-hidden 
@@ -27,7 +27,7 @@ export default function BlogCard({ blog, page }: BlogCardProps) {
     >
       {blog.featuredImage && (
         <div className="px-4 pt-4">
-       <div className="relative aspect-[16/9] w-full rounded-xl">
+       <div className="relative aspect-video w-full rounded-xl">
   <Image
     src={blog.featuredImage}
     alt={blog.title}

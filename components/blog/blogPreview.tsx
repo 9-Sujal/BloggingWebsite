@@ -2,8 +2,7 @@
 import { useBlog } from "@/context/blog";
 import md from "@/lib/md";
 import Image from "next/image";
-import React from "react";
-import "highlight.js/styles/github.css"; 
+
 import {useSession} from 'next-auth/react';
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -46,7 +45,7 @@ export default function BlogPreview({ blog }: { blog?: any }) {
             {/* Featured image at the end (small & elegant) */}
       {featuredImage && (
       
-          <div className="relative w-full aspect-[16/9] mb-8 rounded-xl overflow-hidden border border-white/10">
+          <div className="relative w-full aspect-video mb-8 rounded-xl overflow-hidden border border-white/10">
             <Image
               src={featuredImage}
               alt="Featured"
