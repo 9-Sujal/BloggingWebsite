@@ -49,8 +49,10 @@ export const config = {
     "/dashboard/:path*", 
     "/api/user/:path*", 
     "/api/admin/:path*", 
-    "/api/crud/:path*",    // Added /api/ prefix to ensure it catches database requests
-    "/api/auth/:path*",    // Added to catch external auth sync checks
+    "/api/crud/:path*", 
+    "/api/tags",       
+    "/api/tags/:path*",   
+    "/api/auth/:path*",   
     "/blogs/create"
   ], 
 };
@@ -66,7 +68,7 @@ export default withAuth(
       return new NextResponse(null, {
         status: 200,
         headers: {
-          "Access-Control-Allow-Origin": "https://onrender.com",
+          "Access-Control-Allow-Origin": "https://sujalblogs.onrender.com",
           "Access-Control-Allow-Credentials": "true",
           "Access-Control-Allow-Methods": "GET,DELETE,PATCH,POST,PUT,OPTIONS",
           "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization",
@@ -88,7 +90,7 @@ export default withAuth(
 
     // Set standard CORS headers for valid subsequent requests (GET, POST, etc.)
     const response = NextResponse.next();
-    response.headers.set("Access-Control-Allow-Origin", "https://onrender.com");
+    response.headers.set("Access-Control-Allow-Origin","https://sujalblogs.onrender.com");
     response.headers.set("Access-Control-Allow-Credentials", "true");
     response.headers.set("Access-Control-Allow-Methods", "GET,DELETE,PATCH,POST,PUT,OPTIONS");
     response.headers.set(

@@ -3,7 +3,7 @@ export const dynamic = 'force-dynamic';
 import DotLoader from "@/components/pagewrapper/DotLoader";
 import { useRouter } from 'next/navigation';
 import { useState } from "react";
-import toast from "react-hot-toast/headless";
+import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 
 interface FormError {
@@ -65,10 +65,11 @@ export default function Register(){
       } else {
         setError({ field: "general", message: "Unexpected error occurred" });
       }
-    } finally {
+     
       setLoading(false);
       toast.error(error?.message || "Failed to register" );
-    }
+    
+    } 
         }
 
   

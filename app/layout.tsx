@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
      
-      <BlogProvider>
+  
 
         <body
            className={`
@@ -48,6 +48,7 @@ export default function RootLayout({
         selection:bg-blue-500/30 selection:text-white
       `}
       >
+            <BlogProvider>
         <SessionProviderWrapper>
         <TopNavWrapper/>
         <Toaster position="top-right" />
@@ -63,9 +64,9 @@ export default function RootLayout({
 
 
         </SessionProviderWrapper>
-        
+         </BlogProvider>
       </body>
-      </BlogProvider>
+     
      
     </html>
   );
